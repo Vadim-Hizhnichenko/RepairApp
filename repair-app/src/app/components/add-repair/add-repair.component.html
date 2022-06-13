@@ -1,1 +1,27 @@
-<p>add-repair works!</p>
+<form>
+    <div class="mb-4">
+        <label for="repairTypeId" class="form-label">Repair Type</label>
+        <!-- <input type="text" class="form-control" name="repairTypeId" [(ngModel)]=repairTypeId> -->
+        <select class="form-control" name="repairTypeId" [(ngModel)]="repairTypeId">
+            <option *ngFor="let type of repairTypeList$ | async" [value]="type.id">{{type.repairName}}</option>
+        </select>
+    </div>
+
+    <div class="mb-4">
+        <label for="status" class="form-label">Status</label>
+        <select class="form-control" name="status" [(ngModel)]="status">
+            <option *ngFor="let status of statusList$ | async" [value]="status.statusName">{{status.statusName}}</option>
+        </select>
+    </div>
+
+    <div class="mb-4">
+        <label for="description" class="form-label">Description</label>
+        <input type="text" class="form-control" [(ngModel)]="description" name="description">
+    </div>
+
+    <button (click)="addNewRepair()" *ngIf="repair.id==0" class="btn btn btn-outline-success">Add Repair</button>
+    <button (click)="updateRepair()" *ngIf="repair.id!=0" class="btn btn btn-outline-success">Update Repair</button>
+
+
+
+</form>

@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RepairComponent } from './components/repair/repair.component';
 import { ShowRepairComponent } from './components/show-repair/show-repair.component';
 import { AddRepairComponent } from './components/add-repair/add-repair.component';
@@ -26,7 +26,7 @@ import { RepairApiService } from './services/repair-api.service';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [RepairApiService],
+  providers: [RepairApiService, NgbActiveModal],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
